@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-
-namespace Practice;
+using Syncfusion.Maui.Core.Hosting;
+namespace MauiProject;
 
 public static class MauiProgram
 {
@@ -8,12 +8,22 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+            .ConfigureSyncfusionCore()
 			.UseMauiApp<App>()
+			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			})
+            .ConfigureMauiHandlers(handlers =>
+            {
+#if ANDROID
+                handlers.AddHandler(typeof(Shell), typeof(MyShellRenderer));
+#endif
+            })
+            ;
 
 #if DEBUG
 		builder.Logging.AddDebug();

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="Practice.AppShell"
+    x:Class="MauiProject.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Practice"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:local="clr-namespace:MauiProject"
+    xmlns:page="clr-namespace:MauiProject.Views.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="True">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar >
+        <Tab Icon="search" Route="main">
+            <ShellContent ContentTemplate="{DataTemplate page:MainPage}" />
+        </Tab>
+        <Tab Icon="bookmark_solid" Route="main">
+            <ShellContent ContentTemplate="{DataTemplate page:MainPage}" />
+        </Tab>
+        <Tab Icon="testin_splash" Route="main">
+            <ShellContent ContentTemplate="{DataTemplate page:MainPage}" />
+        </Tab>
+        <Tab Icon="profile" Route="main">
+            <ShellContent ContentTemplate="{DataTemplate page:ProfilePage}" />
+        </Tab>
+        <Tab Icon="cart" Route="main">
+            <ShellContent ContentTemplate="{DataTemplate page:MainPage}" />
+        </Tab>
+    </TabBar>
 </Shell>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   mc:Ignorable="d"
+                   xmlns:page="clr-namespace:MauiProject.Views.Pages"
+                   xmlns:local="clr-namespace:MauiProject"
+                   x:Class="MauiProject.Views.Pages.MainPage"
+                   xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+                   android:Application.WindowSoftInputModeAdjust="Unspecified"
+                   BindingContext="{x:Static local:AppLocator.MainViewModel}"
+                   Shell.PresentationMode="Animated"
+                   Background="{StaticResource Gray100Brush}">
+    
+
+                
+
+
+
+    <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+
+        <!---Header Image-->
+        <CollectionView VerticalOptions="StartAndExpand"/>
+
+        <ScrollView Grid.Row="1"
+                        Orientation="Vertical"
+                        VerticalOptions="Fill"     
+                        VerticalScrollBarVisibility="Never"
+                        HorizontalScrollBarVisibility="Never">
+            <Grid RowDefinitions="Auto,Auto"
+                      VerticalOptions="FillAndExpand"
+                      Padding="0,0,0,0">
+                <!---Just Launched Text-->
+                <VerticalStackLayout Grid.Row="0"
+                                         Margin="0,0,0,0">
+                    <Image Source="tshirt_image.jpeg"
+                   MaximumHeightRequest="500"
+                   MaximumWidthRequest="400"
+                           Margin="-5"/>
+                    <Label Text="NEW Grey T-Shirt"
+                           HorizontalTextAlignment="Start"
+                           Padding="5"
+                   TextColor="Black"
+                   FontSize="30"
+                   HorizontalOptions="Start"
+                   />
+                    <Label Text="Just Launched"
+                           Padding="5"
+                           HorizontalTextAlignment="Start"
+                               Style="{StaticResource ProximaNova}"/>
+                    <Grid>
+
+                    </Grid>
+                
+
+                    <!---Latest Products Header-->
+                    <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     Margin="10,95,0,0">
+                        <Label Text="Latest Products"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontFamily="RalewayMedium"
+                                   FontSize="22"
+                                   TextColor="Black"/>
+                        <Label Text="View All"
+                                   HorizontalOptions="End"
+                                   FontFamily="RalewayMedium"
+                                   FontSize="22"
+                                   Padding="5"
+                                   TextColor="{StaticResource Gray500}"/>
+                </StackLayout>
+                
+                <!---Products Collection View-->
+                    <CollectionView x:Name ="collectionView" ItemsLayout="HorizontalList" EmptyView="No data available">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="10" BackgroundColor="{StaticResource Gray100}" BorderColor="{StaticResource Gray100}">
+                                    <Grid>
+                                        <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="0" VerticalOptions="Center">
+                                            <Image Source="{Binding ItemImage}" Grid.Column="0" Grid.Row="0" WidthRequest="200" MinimumHeightRequest="300"/>
+                                            <Label Text="{Binding ItemName}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                                            <Label Text="{Binding ItemPrice}"/>
+
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                </CollectionView>
+               
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

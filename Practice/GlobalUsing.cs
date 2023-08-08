@@ -1,0 +1,10 @@
+﻿global using CommunityToolkit.Maui;
+global using Microsoft.Maui.Platform;
+global using System.Collections.ObjectModel;
+global using System.Diagnostics;
+global using System.Windows.Input;
+global using CommunityToolkit.Mvvm;
+global using MauiProject;
+global using MauiProject.Models;
+global using MauiProject.ViewModels;
+global using MauiProject.Views;
